@@ -1,7 +1,7 @@
 
-int button[3]={2,3,4};
-int btstat[3];
-int btinit=0;
+int button[3]={2,3,4}; //button pin 2,3,4 in arduino
+int btstat[3];  //button status wether its high or low
+int btinit=0; //initial stage of button
 bool bt0=false,bt1=false,bt2=false;
 void setup() {
 Serial.begin(9600);
@@ -10,7 +10,7 @@ for(int i=0;i<=2;i++) {
 }
 }
 
-void chkbt() {
+void chkbt() { //check which button is pressed
 if(btstat[0]==HIGH) {
 bt0=true;
 bt1=false;
@@ -29,7 +29,7 @@ bt2=true;
 }
 }
 
-void pbseq() {
+void pbseq() { //push button pressed 
  for(int i=0;i<=2;i++) {
 btstat[i]=digitalRead(button[i]); 
 }
