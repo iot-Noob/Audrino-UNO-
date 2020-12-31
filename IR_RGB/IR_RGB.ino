@@ -40,7 +40,7 @@ bool ison=false;
 
 int fadeflag=255;
 //          R   G  B   
-int rgb[3]={A0,A1,A2}; //RGB LED PIN OUT
+int rgb[3]={3,6,5}; //RGB LED PIN OUT
 
 public:
 
@@ -75,6 +75,7 @@ switch (select) {
        break;
       
       case 16724175:
+      
         if(fadeflag==255) {
           nill();
           
@@ -102,6 +103,7 @@ switch (select) {
 
 
 void led_glow(int slct) {
+  
 if(ison==true) {
    
 analogWrite(rgb[slct],fadeflag);    
@@ -115,7 +117,7 @@ analogWrite(rgb[slct],LOW);
 
 
 };
-
+ 
 ledrgb lrgb[3];
 ledrgb ledprog[6];
 
@@ -136,7 +138,8 @@ void ir_read() {
 int select=0;
 int asize;
 void btpress() {
-if(results.value==button[0]) {
+   if (irrecv.decode(&results)){
+        if(results.value==button[0]) {
 select=0;
  Serial.print("\nRed led is Selected\n");    
 }
@@ -166,13 +169,16 @@ lrgb[select].led_glow(2);
   Serial.print("\n Blue LED turning on\n");
 break;
 }
+irrecv.resume();
+  }
+
 
 
 
 }
 
 void loop() {
-ir_read();
+//ir_read();
 btpress();
 
 lrgb[select].led_controll(results.value);
