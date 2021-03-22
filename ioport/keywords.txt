@@ -1,0 +1,24 @@
+#######################################
+# Syntax Coloring Map For ioport
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ioport	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+nill    	KEYWORD2
+d_port2 	KEYWORD2
+d_port3 	KEYWORD2 
+drw     	KEYWORD2
+drw_mm  	KEYWORD2
+d_port  	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
+
