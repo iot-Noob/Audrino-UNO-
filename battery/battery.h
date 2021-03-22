@@ -24,6 +24,7 @@ byte batery[11][2][8]= {
 float voltage,vmt ;
 int btr,btc;
 int btsmap;
+float bvcc;
 public:
 
 void begin(int br,int bc);
@@ -33,6 +34,7 @@ void bat_stat(int bp);
 void draw_battery(int r,int c);
 void charge();
 void Main();
+void batvolt(float v); //voltage of battery
 };
  
 #endif

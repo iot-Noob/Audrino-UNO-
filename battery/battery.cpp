@@ -10,6 +10,7 @@ void  battery::begin(int br,int bc) {
   lcd.begin(16, 2);
   btr=br;
   btc=bc;
+  bvcc=5.0;
  }
  battery::battery(int inp) {
   vin=inp;
@@ -17,8 +18,9 @@ void  battery::begin(int br,int bc) {
 
  void  battery::cal_voltage() {
 sv=analogRead(vin);
-voltage= (sv * 5.0) / 1024.0; 
- bp=(voltage/5)*100;
+voltage= (sv * bvcc) / 1024.0; 
+ 
+ bp=(voltage/bvcc)*100;
 
 Serial.println(voltage);
 }
@@ -40,6 +42,7 @@ void battery::draw_battery(int r,int c) {
 void  battery::charge() {
 
   btsmap=map(bp,100,0,10,0);
+  
    bat_stat(btsmap); 
      lcd.setCursor(btr+2,btc); 
     lcd.print(bp);
@@ -53,4 +56,8 @@ cal_voltage();
 charge();
 
 
+}
+
+void battery::batvolt(float v) {
+  bvcc=v;
 }

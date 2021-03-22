@@ -16,11 +16,12 @@
  * wiper to LCD VO pin (pin 3)
 */
 #include"battery.h"
-battery b1(A0);
+battery b1(A0); //input pin for battery volt check
 void setup() {
-  b1.begin(0,0);
+  b1.begin(11,1); //set position of battery onto LCD
+ // b1.batvolt(7.33);// define battery voltage default is 5v
 }
 
 void loop() {
- b1.Main();
+ b1.Main(); //show battery on screen
 }
