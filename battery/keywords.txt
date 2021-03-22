@@ -1,0 +1,23 @@
+#######################################
+# Syntax Coloring Map For battery
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+battery	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+cal_voltage   	KEYWORD2
+bat_stat	KEYWORD1
+draw_battery	KEYWORD1 
+charge  	KEYWORD1 
+Main  	KEYWORD1 
+#######################################
+# Constants (LITERAL1)
+#######################################
+
