@@ -39,7 +39,7 @@ void battery::draw_battery(int r,int c) {
 
 void  battery::charge() {
 
-  btsmap=map(bp,0,100,0,10);
+  btsmap=map(bp,100,0,10,0);
    bat_stat(btsmap); 
      lcd.setCursor(btr+2,btc); 
     lcd.print(bp);
