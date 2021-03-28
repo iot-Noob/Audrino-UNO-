@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map For dmm
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+dmm		KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+voltage	KEYWORD2
+volt_devider	KEYWORD1
+voltage_range	KEYWORD2
+vinput  	KEYWORD2 
+sensor_pin  	KEYWORD2 
+#######################################
+# Constants (LITERAL1)
+#######################################
+
