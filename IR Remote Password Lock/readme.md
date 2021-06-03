@@ -14,7 +14,7 @@ If you use shift register like i did dowload the [Shifterd LCD library](https://
 ## Schematic
 Here is the schematic for circuit you have to build down below.
 
-![Schematics](https://github.com/iot-Noob/Audrino-UNO-/blob/master/IR%20Remote%20Password%20Lock/IR%20passwd%20schematic.png)
+![Schematics](https://github.com/iot-Noob/Audrino-UNO-/blob/master/IR%20Remote%20Password%20Lock/Schematic%202.png)
 
 ## In the end
 here are 2 versions i made for this project in first on  i store my values in a datatype which didnt stay forever it is gone when board reset in second version i store those values to EEPROM of arduino so it stay forever and you can change the password as well it will update the password on EEPROM of an arduino enjoy the code.
