@@ -1,0 +1,141 @@
+#include <IRremote.h>
+
+const int RECV_PIN = 2,BL=13;
+IRrecv irrecv(RECV_PIN);
+decode_results results;
+
+
+int nill() {
+ return 0; 
+}
+
+void setup(){
+  Serial.begin(9600);
+  irrecv.enableIRIn();
+pinMode(BL,OUTPUT);
+  digitalWrite(BL,LOW);
+}
+
+class remote {
+private:
+int btf=-1;
+uint64_t btns[15]= {
+0xFFE21D, //up  a
+0xFFD22D,//down b
+0xFF12ED,//left c
+0xFF52AD,//right d
+0xFF30CF,//volume up e
+0xFF18E7,//volume down f
+0xFF02FD, //minimize /maximize g
+0x12EEF20D,//maximize/minimize and puase video h
+0xFF926D,   //play/pause  i
+0xFF48B7, //mute  unmute j
+0xFF728D, //f1 key full screen k
+0xFF55AA, //close tab
+0xFF6A95, //new tab
+0xFFD02F, //system vup
+0xFFA857, //system vdown
+
+};
+public: 
+
+void btread() {
+ for(int i=0;i<=14;i++) {
+  if(results.value==btns[i]) {
+    btf=i;  
+action_bt(btf); 
+}else {
+  nill(); 
+}
+
+} 
+btf=-1;
+}
+
+ 
+ 
+void pressbt() {
+  if (irrecv.decode(&results)){
+    digitalWrite(BL,HIGH);
+   // Serial.print("\n0x");
+   // Serial.print(results.value,HEX);
+   btread();
+
+//Serial.print("\n");
+delay(44);
+        irrecv.resume();
+         digitalWrite(BL,LOW);
+        
+  }
+}
+
+void action_bt(int val) {
+switch(val) {
+   case 0:
+  Serial.println("a");
+   break;
+   case 1:
+  Serial.println("b");
+   break;
+   case 2:
+  Serial.println("c");
+   break;
+   case 3:
+  Serial.println("d");
+   break;
+   case 4:
+  Serial.println("e");
+   break;
+   case 5:
+  Serial.println("f");
+   break;
+   case 6:
+  Serial.println("g");
+   break;
+   case 7:
+  Serial.println("h");
+   break;
+   case 8:
+  Serial.println("i");
+   break;
+ case 9:
+  Serial.println("j");
+   break;
+    case 10:
+  Serial.println("k");
+   break;
+      case 11:
+  Serial.println("l");
+   break;
+   case 12:
+  Serial.println("m");
+   break;
+   case 13:
+  Serial.println("n");
+   break;
+   case 14:
+  Serial.println("o");
+   break;
+ } 
+}
+
+};
+
+
+remote r1;
+
+
+void ReadIr() {
+  if (irrecv.decode(&results)){
+    digitalWrite(BL,HIGH);
+    
+        irrecv.resume();
+         digitalWrite(BL,LOW);
+        
+  }
+}
+
+void loop(){
+r1. pressbt();
+
+}
